@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import HeroSection from "./components/HeroSection";
+import Features from "./components/Features";
+import Why46Plus2 from "./components/Why46Plus2";
+import Footer from "./components/Footer";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
+import ContactUsSection from "./pages/Contact"; // ✅ Import Contact Page
+import Navbar from "./components/Navbar"; // ✅ Import Navbar
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Navbar /> {/* ✅ Navbar always visible */}
+      <Routes>
+        {/* Home Page */}
+        <Route 
+          path="/" 
+          element={
+            <>
+              <HeroSection />
+              <Features />
+              <Why46Plus2 />
+              <Footer />
+            </>
+          } 
+        />
+
+        {/* Other Pages */}
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms-of-service" element={<TermsOfService />} />
+        <Route path="/contact" element={<ContactUsSection />} /> {/* ✅ Contact Page Added */}
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
