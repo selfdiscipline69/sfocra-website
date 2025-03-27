@@ -99,7 +99,7 @@ const Features = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             src="/images/iphone-mockup.png" // Make sure this image is in the "public/images" folder
             alt="46+2 App Preview"
-            style={{ maxWidth: "350px", height: "auto", borderRadius: "20px" }}
+            style={{ maxWidth: "300px", height: "auto", borderRadius: "20px" }}
           />
         </Box>
         
@@ -112,7 +112,7 @@ const Features = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             src="/images/iphone-stats.png" // Add this second image to public/images folder
             alt="46+2 Stats Screen"
-            style={{ maxWidth: "350px", height: "auto", borderRadius: "20px" }}
+            style={{ maxWidth: "300px", height: "auto", borderRadius: "20px" }}
           />
         </Box>
       </Box>

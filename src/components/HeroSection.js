@@ -10,11 +10,11 @@ const HeroSection = () => {
     <Box
       sx={{
         position: "relative",
-        width: "99.22vw", // Changed from 89vw to full width
+        width: "100vw", // Changed from 89vw to full width
         height: "100vh", // Ensure full height
         backgroundImage: "url('/images/knight-red-moon.png')",
         backgroundSize: "cover", // Ensures it covers the entire screen
-        backgroundPosition: "50% center", // Slightly shifted to the right
+        backgroundPosition: "60% center", // Slightly shifted to the right
         backgroundRepeat: "no-repeat", // Prevents tiling
         backgroundAttachment: "fixed", // Optional: Creates a parallax effect
         display: "flex",
