@@ -60,14 +60,41 @@ const ContactUsSection = () => {
 
   return (
     <>
-      <Box sx={{ width: "100%", py: 30, display: "flex", justifyContent: "center", backgroundColor: "#222", color: "white" }}>
-        <Box sx={{ maxWidth: "600px", width: "100%", backgroundColor: "#333", p: 5, borderRadius: "20px", boxShadow: 3 }}>
+      <Box 
+        sx={{ 
+          width: "100%", 
+          py: 20, 
+          display: "flex", 
+          justifyContent: "center", 
+          backgroundImage: "url('/images/contact-bg.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          position: "relative",
+          color: "white"
+        }}
+      >
+
+        
+        <Box 
+          sx={{ 
+            maxWidth: "600px", 
+            width: "100%", 
+            backgroundColor: "rgba(34, 34, 34, 0.85)", 
+            p: 5, 
+            borderRadius: "20px", 
+            boxShadow: "0 10px 30px rgba(0, 0, 0, 0.5)",
+            position: "relative",
+            zIndex: 2,
+            backdropFilter: "blur(10px)"
+          }}
+        >
           <Typography variant="h4" sx={{ fontWeight: "bold", mb: 3, textAlign: "center" }}>
             Contact Us
           </Typography>
 
           {submitted ? (
-            <Typography variant="h6" sx={{ color: "green", textAlign: "center", mt: 3, py: 20, fontWeight: "bold" }}>
+            <Typography variant="h6" sx={{ color: "#4caf50", textAlign: "center", mt: 3, py: 10, fontWeight: "bold" }}>
               Thank you! Your message has been sent.
             </Typography>
           ) : (
@@ -82,7 +109,7 @@ const ContactUsSection = () => {
                     variant="outlined"
                     value={formData.firstName}
                     onChange={handleChange}
-                    sx={{ backgroundColor: "white", borderRadius: "5px" }}
+                    sx={{ backgroundColor: "rgba(255, 255, 255, 0.9)", borderRadius: "5px" }}
                   />
                 </Grid>
 
@@ -95,7 +122,7 @@ const ContactUsSection = () => {
                     variant="outlined"
                     value={formData.lastName}
                     onChange={handleChange}
-                    sx={{ backgroundColor: "white", borderRadius: "5px" }}
+                    sx={{ backgroundColor: "rgba(255, 255, 255, 0.9)", borderRadius: "5px" }}
                   />
                 </Grid>
               </Grid>
@@ -106,7 +133,7 @@ const ContactUsSection = () => {
                 label="Email Address"
                 name="email"
                 variant="outlined"
-                sx={{ mt: 2, backgroundColor: "white", borderRadius: "5px" }}
+                sx={{ mt: 2, backgroundColor: "rgba(255, 255, 255, 0.9)", borderRadius: "5px" }}
                 value={formData.email}
                 onChange={handleChange}
               />
@@ -117,7 +144,7 @@ const ContactUsSection = () => {
                 label="Phone Number"
                 name="phone"
                 variant="outlined"
-                sx={{ mt: 2, backgroundColor: "white", borderRadius: "5px" }}
+                sx={{ mt: 2, backgroundColor: "rgba(255, 255, 255, 0.9)", borderRadius: "5px" }}
                 value={formData.phone}
                 onChange={handleChange}
               />
@@ -129,7 +156,7 @@ const ContactUsSection = () => {
                 label="Inquiry Type"
                 name="inquiryType"
                 variant="outlined"
-                sx={{ mt: 2, backgroundColor: "white", borderRadius: "5px" }}
+                sx={{ mt: 2, backgroundColor: "rgba(255, 255, 255, 0.9)", borderRadius: "5px" }}
                 value={formData.inquiryType}
                 onChange={handleChange}
               >
@@ -148,7 +175,7 @@ const ContactUsSection = () => {
                 variant="outlined"
                 multiline
                 rows={5}
-                sx={{ mt: 2, backgroundColor: "white", borderRadius: "5px" }}
+                sx={{ mt: 2, backgroundColor: "rgba(255, 255, 255, 0.9)", borderRadius: "5px" }}
                 value={formData.message}
                 onChange={handleChange}
               />
@@ -157,9 +184,18 @@ const ContactUsSection = () => {
               <Button
                 type="submit"
                 variant="contained"
-                color="secondary"
                 fullWidth
-                sx={{ mt: 3, py: 1.5, fontSize: "16px", borderRadius: "10px", backgroundColor: "#ff4d4d", color: "white" }}
+                sx={{ 
+                  mt: 3, 
+                  py: 1.5, 
+                  fontSize: "16px", 
+                  borderRadius: "10px", 
+                  backgroundColor: "red", 
+                  color: "white",
+                  "&:hover": {
+                    backgroundColor: "darkred"
+                  } 
+                }}
                 disabled={loading}
               >
                 {loading ? "Sending..." : "Send Message"}
