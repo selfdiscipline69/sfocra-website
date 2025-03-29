@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HeroSection from "./components/HeroSection";
 import Features from "./components/Features";
-import Why46Plus2 from "./components/Why46Plus2";
+import Why46Plus2 from "./components/WhySFOCRA";
 import RPGProgression from "./components/RPGProgression";
 import MindBodyQuests from "./components/MindBodyQuests";
 import HabitTracking from "./components/HabitTracking";

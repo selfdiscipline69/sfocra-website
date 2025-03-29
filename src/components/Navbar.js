@@ -18,20 +18,36 @@ const Navbar = () => {
       }}
     >
       <Toolbar sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        {/* Left - 46 + 2 Title */}
+        {/* Left - Logo and SFOCRA Title */}
         <motion.div
           whileHover={{ scale: 1.05 }}
           transition={{ type: "spring", stiffness: 400, damping: 10 }}
+          style={{ display: "flex", alignItems: "center" }}
         >
-          <Typography 
-            variant="h2" 
-            sx={{ fontWeight: "bold", color: "white", cursor: "pointer" }}
+          <Box 
             component={Link}
-            to="/" // Clicking the title navigates to home
-            style={{ textDecoration: "none" }}
+            to="/"
+            sx={{ 
+              display: "flex", 
+              alignItems: "center",
+              textDecoration: "none"
+            }}
           >
-            46 + 2
-          </Typography>
+            <img 
+              src="/white_logo.png" 
+              alt="SFOCRA Logo" 
+              style={{ 
+                height: "90px", 
+                marginRight: "15px" 
+              }} 
+            />
+            <Typography 
+              variant="h2" 
+              sx={{ fontWeight: "bold", color: "white" }}
+            >
+              SFOCRA
+            </Typography>
+          </Box>
         </motion.div>
 
         {/* Right - Navigation Links (Only Contact, No Background) */}
@@ -48,10 +64,10 @@ const Navbar = () => {
                 textTransform: "none", 
                 fontSize: "18px", 
                 padding: "12px 24px",
-                backgroundColor: "red", // Added red background color
-                borderRadius: "30px", // Added rounded corners
+                backgroundColor: "red", 
+                borderRadius: "30px", 
                 "&:hover": { 
-                  backgroundColor: "darkred" // Changed hover effect to a darker red
+                  backgroundColor: "darkred" 
                 } 
               }}
             >

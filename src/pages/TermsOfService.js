@@ -12,7 +12,7 @@ const TermsOfService = () => {
       }}
     >
       <Typography variant="h3" sx={{ fontWeight: "bold", marginBottom: "30px" }}>
-        46+2 – Terms of Service
+        SFOCRA – Terms of Service
       </Typography>
 
       <Typography variant="h6" sx={{ marginBottom: "20px" }}>
@@ -20,7 +20,7 @@ const TermsOfService = () => {
       </Typography>
 
       <Typography variant="body1" sx={{ marginBottom: "20px" }}>
-        Welcome to 46+2! These Terms of Service (“Terms”) govern your use of the 46+2 mobile application (the “App”). 
+        Welcome to SFOCRA! These Terms of Service ("Terms") govern your use of the SFOCRA mobile application (the "App"). 
         By accessing or using the App, you agree to these Terms. If you do not agree, please do not use the App.
       </Typography>
 
@@ -49,7 +49,7 @@ const TermsOfService = () => {
       <Typography variant="body1" sx={{ marginBottom: "20px" }}>
         You agree to use the App in a lawful and respectful way. You must not: <br />
         • Use the App for any illegal, harmful, or misleading activities. <br />
-        • Interfere with or disrupt the App’s functionality or security. <br />
+        • Interfere with or disrupt the App's functionality or security. <br />
         • Copy, modify, or distribute any part of the App without permission. <br />
         • Violate any third-party rights (such as intellectual property).
       </Typography>
@@ -58,7 +58,7 @@ const TermsOfService = () => {
         4. Content Ownership & Usage
       </Typography>
       <Typography variant="body1" sx={{ marginBottom: "20px" }}>
-        • All content, trademarks, and code in the App belong to 46+2. <br />
+        • All content, trademarks, and code in the App belong to SFOCRA. <br />
         • You may not use or copy any part of the App without our permission. <br />
         • If you submit content (such as progress updates or challenges), you allow us to use it within the App.
       </Typography>
@@ -69,7 +69,7 @@ const TermsOfService = () => {
       <Typography variant="body1" sx={{ marginBottom: "20px" }}>
         • Some features may require a subscription or one-time payment. <br />
         • Payments are processed securely through the Apple App Store. <br />
-        • Any refunds or cancellations must follow Apple’s policies.
+        • Any refunds or cancellations must follow Apple's policies.
       </Typography>
 
       <Typography variant="h6" sx={{ fontWeight: "bold", marginBottom: "10px" }}>
@@ -104,7 +104,7 @@ const TermsOfService = () => {
         9. Disclaimer & Limitation of Liability
       </Typography>
       <Typography variant="body1" sx={{ marginBottom: "20px" }}>
-        • The App is provided “as is” and “as available” without warranties. <br />
+        • The App is provided "as is" and "as available" without warranties. <br />
         • We do not guarantee that the App will always work perfectly or without errors. <br />
         • We are not responsible for any damages or losses caused by using the App.
       </Typography>
@@ -123,7 +123,7 @@ const TermsOfService = () => {
       </Typography>
       <Typography variant="body1">
         If you have any questions or concerns about these Terms, you can contact us at: <br />
-        📧 <strong>support@46plus2.com</strong>
+        📧 <strong>support@sfocra.com</strong>
       </Typography>
     </Box>
   );

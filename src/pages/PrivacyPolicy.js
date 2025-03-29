@@ -12,7 +12,7 @@ const PrivacyPolicy = () => {
       }}
     >
       <Typography variant="h3" sx={{ fontWeight: "bold", marginBottom: "30px" }}>
-        46+2 – Privacy Policy
+        SFOCRA – Privacy Policy
       </Typography>
 
       <Typography variant="h6" sx={{ marginBottom: "20px" }}>
@@ -20,7 +20,7 @@ const PrivacyPolicy = () => {
       </Typography>
 
       <Typography variant="body1" sx={{ marginBottom: "20px" }}>
-        Welcome to 46+2! Your privacy is important to us. This Privacy Policy explains how we collect, use, and protect your personal information when you use the 46+2 mobile application (the “App”).
+        Welcome to SFOCRA! Your privacy is important to us. This Privacy Policy explains how we collect, use, and protect your personal information when you use the SFOCRA mobile application (the "App").
       </Typography>
 
       <Typography variant="body1" sx={{ marginBottom: "20px" }}>
@@ -75,9 +75,9 @@ const PrivacyPolicy = () => {
         4. Data Retention & Security
       </Typography>
       <Typography variant="body1" sx={{ marginBottom: "20px" }}>
-        • We store your data only as long as necessary for the App’s functionality. <br />
+        • We store your data only as long as necessary for the App's functionality. <br />
         • We use encryption and security measures to protect your information. <br />
-        • You can request account deletion or data removal by contacting us at support@46plus2.com.
+        • You can request account deletion or data removal by contacting us at support@sfocra.com.
       </Typography>
 
       <Typography variant="h6" sx={{ fontWeight: "bold", marginBottom: "10px" }}>
@@ -88,11 +88,11 @@ const PrivacyPolicy = () => {
         • Accessing your data (request a copy of your information).<br />
         • Requesting data deletion (removing personal data from our system).<br />
         • Opting out of tracking (if applicable).<br /><br />
-        To exercise these rights, email us at support@46plus2.com.
+        To exercise these rights, email us at support@sfocra.com.
       </Typography>
 
       <Typography variant="h6" sx={{ fontWeight: "bold", marginBottom: "10px" }}>
-        6. Children’s Privacy
+        6. Children's Privacy
       </Typography>
       <Typography variant="body1" sx={{ marginBottom: "20px" }}>
         • The App is not intended for users under 13 years old.<br />
@@ -122,7 +122,7 @@ const PrivacyPolicy = () => {
       </Typography>
       <Typography variant="body1">
         For privacy-related questions, contact us at:<br />
-        📧 <strong>support@46plus2.com</strong>
+        📧 <strong>support@sfocra.com</strong>
       </Typography>
     </Box>
   );

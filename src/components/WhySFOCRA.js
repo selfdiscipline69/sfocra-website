@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 
-const Why46Plus2 = () => {
+const WhySFOCRA = () => {
   // Animation variants for staggered text animations
   const textVariants = {
     offscreen: {
@@ -38,20 +38,22 @@ const Why46Plus2 = () => {
       >
         <motion.div variants={textVariants}>
           <Typography variant="h3" sx={{ fontWeight: "bold", marginBottom: "40px" }}>
-            Why "46+2"?
+            Why "SFOCRA"?
           </Typography>
         </motion.div>
 
         <motion.div variants={textVariants}>
           <Typography variant="h6" sx={{ marginBottom: "20px", opacity: 0.9 }}>
-            46+2 represents growth, transformation, and evolution.
+            SFOCRA represents growth, transformation, and personal excellence.
           </Typography>
         </motion.div>
 
         <motion.div variants={textVariants}>
           <Typography variant="h6" sx={{ marginBottom: "20px", opacity: 0.9 }}>
-            The name is inspired by the idea that humans have 46 chromosomes, and the +2 symbolizes the next stage of development—
-            both physically and mentally.
+            The name breaks down into three powerful concepts: 
+            <strong>S</strong> for Sigma (excellence); 
+            <strong>FOC</strong> - for Focus (clarity and determination);  and 
+            <strong>RA</strong> for Aura (your personal energy and presence).
           </Typography>
         </motion.div>
 
@@ -63,19 +65,19 @@ const Why46Plus2 = () => {
 
         <motion.div variants={textVariants}>
           <Typography variant="h6" sx={{ marginBottom: "10px", opacity: 0.9 }}>
-            <strong>46 =</strong> Your current self, with all your strengths and limitations.
+            <strong>🗡️ Sigma =</strong> Striving for excellence and mastery in all areas of life.
           </Typography>
         </motion.div>
         
         <motion.div variants={textVariants}>
           <Typography variant="h6" sx={{ marginBottom: "30px", opacity: 0.9 }}>
-            <strong>+2 =</strong> Pushing beyond, evolving into something greater.
+            <strong>🧠 Focus + Aura =</strong> Directing your energy with clarity while developing your personal presence.
           </Typography>
         </motion.div>
 
         <motion.div variants={textVariants}>
           <Typography variant="h6" sx={{ marginBottom: "30px", opacity: 0.9 }}>
-            Just like in RPGs where characters level up, 46+2 is about leveling up your real-life skills—your body, mind, and habits—
+            Just like in RPGs where characters level up, SFOCRA is about leveling up your real-life skills—your body, mind, and habits—
             to become the best version of yourself.
           </Typography>
         </motion.div>
@@ -88,7 +90,7 @@ const Why46Plus2 = () => {
             variant="h6"
             sx={{ fontStyle: "italic", fontWeight: "bold", opacity: 0.8 }}
           >
-            You are not stuck. You can evolve. You can grow. 46+2 is the system that helps you do it.
+            You are not stuck. You can evolve. You can grow. SFOCRA is the system that helps you do it.
           </Typography>
         </motion.div>
       </motion.div>
@@ -96,4 +98,4 @@ const Why46Plus2 = () => {
   );
 };
 
-export default Why46Plus2;
+export default WhySFOCRA;

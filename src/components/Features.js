@@ -56,25 +56,25 @@ const Features = () => {
 
         <motion.div variants={itemVariants}>
           <Typography variant="h6" sx={{ marginBottom: "40px" }}>
-            <strong>RPG Progression</strong> – Level up by completing daily quests
+            <strong>🎮 RPG Progression</strong> – Level up by completing daily quests
           </Typography>
         </motion.div>
         
         <motion.div variants={itemVariants}>
           <Typography variant="h6" sx={{ marginBottom: "40px" }}>
-            <strong>Mind & Body Quests</strong> – Study, train, and grow stronger
+            <strong>🎯 Mind & Body Quests</strong> – Study, train, and grow stronger
           </Typography>
         </motion.div>
         
         <motion.div variants={itemVariants}>
           <Typography variant="h6" sx={{ marginBottom: "40px" }}>
-            <strong>Habit Tracking & Streaks</strong> – Build consistency over time
+            <strong>🔥 Habit Tracking & Streaks</strong> – Build consistency over time
           </Typography>
         </motion.div>
         
         <motion.div variants={itemVariants}>
           <Typography variant="h6" sx={{ fontWeight: "bold", opacity: 0.8, marginBottom: "40px" }}>
-            Social Progress Sharing (Coming Soon!)
+            👥 Social Progress Sharing (Coming Soon!)
           </Typography>
         </motion.div>
       </Box>
@@ -98,7 +98,7 @@ const Features = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
             src="/images/iphone-mockup.png" // Make sure this image is in the "public/images" folder
-            alt="46+2 App Preview"
+            alt="SFOCRA App Preview"
             style={{ maxWidth: "300px", height: "auto", borderRadius: "20px" }}
           />
         </Box>
@@ -111,7 +111,7 @@ const Features = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4 }}
             src="/images/iphone-stats.png" // Add this second image to public/images folder
-            alt="46+2 Stats Screen"
+            alt="SFOCRA Stats Screen"
             style={{ maxWidth: "300px", height: "auto", borderRadius: "20px" }}
           />
         </Box>

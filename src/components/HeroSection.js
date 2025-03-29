@@ -49,7 +49,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <Typography variant="h2" sx={{ mt: 2 }}>
-            46+2 is a gamified self-improvement app that helps you level up your mind and body.
+            SFOCRA is a gamified self-improvement app that helps you level up your mind and body.
           </Typography>
         </motion.div>
         

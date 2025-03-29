@@ -18,7 +18,7 @@ const Footer = () => {
           </Typography>
           <Typography variant="body2">
             Have questions? Reach out to us at: <br />
-            <strong>Email:</strong> support@46plus2.com <br />
+            <strong>Email:</strong> support@sfocra.com <br />
             <strong>Phone:</strong> +44 1234 567890
           </Typography>
         </Grid>
