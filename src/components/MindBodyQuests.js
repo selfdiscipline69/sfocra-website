@@ -44,14 +44,16 @@ const MindBodyQuests = () => {
   return (
     <Box
       sx={{
-        width: "80%",
-        backgroundColor: "#222", // Dark background like Why46Plus2
+        width: "100%",
+        backgroundColor: "#222",
         color: "white",
-        padding: "100px 10%",
+        padding: { xs: '60px 15px', sm: '80px 10%', md: '100px 10%' },
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
+        flexDirection: { xs: 'column', md: 'row' },
         flexWrap: "wrap",
+        gap: { xs: 4, md: 2 }
       }}
     >
       {/* Left Side: Text Content */}
@@ -61,22 +63,40 @@ const MindBodyQuests = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
-        sx={{ flex: "1", minWidth: "400px" }}
+        sx={{ 
+          flex: "1", 
+          minWidth: { xs: '90%', md: '400px' },
+          textAlign: { xs: 'center', md: 'left' },
+          order: { xs: 1, md: 0 }
+        }}
       >
         <motion.div variants={itemVariants}>
-          <Typography variant="h3" sx={{ fontWeight: "bold", marginBottom: "40px" }}>
+          <Typography variant="h3" sx={{ 
+              fontWeight: "bold", 
+              mb: { xs: 3, md: '40px' },
+              fontSize: { xs: '1.5rem', sm: '1.8rem', md: '2.2rem' }
+            }}>
             Mind & Body Quests
           </Typography>
         </motion.div>
 
         <motion.div variants={itemVariants}>
-          <Typography variant="h6" sx={{ marginBottom: "20px", opacity: 0.9 }}>
+          <Typography variant="h6" sx={{ 
+              mb: { xs: 2, md: '20px' },
+              opacity: 0.9,
+              fontSize: { xs: '1rem', sm: '1.1rem', md: '1.15rem' }
+            }}>
             Balance your physical and mental development with targeted quests.
           </Typography>
         </motion.div>
 
         <motion.div variants={itemVariants}>
-          <Box sx={{ display: 'flex', alignItems: 'center', marginBottom: "20px" }}>
+          <Box sx={{ 
+              display: 'flex', 
+              alignItems: 'center', 
+              mb: { xs: 2, md: '20px' },
+              justifyContent: { xs: '10% center', md: 'flex-start' } 
+            }}>
             <motion.div
               whileHover={{ rotate: 360, scale: 1.2 }}
               transition={{ duration: 0.6 }}
@@ -98,14 +118,22 @@ const MindBodyQuests = () => {
                 <FitnessIcon />
               </Box>
             </motion.div>
-            <Typography variant="h6" sx={{ opacity: 0.9 }}>
+            <Typography variant="h6" sx={{ 
+                opacity: 0.9,
+                fontSize: { xs: '1rem', sm: '1.1rem', md: '1.15rem' }
+              }}>
               Physical Quests: Workouts, running, yoga, and more
             </Typography>
           </Box>
         </motion.div>
 
         <motion.div variants={itemVariants}>
-          <Box sx={{ display: 'flex', alignItems: 'center', marginBottom: "20px" }}>
+          <Box sx={{ 
+              display: 'flex', 
+              alignItems: 'center', 
+              mb: { xs: 2, md: '20px' },
+              justifyContent: { xs: '10% center', md: 'flex-start' } 
+            }}>
             <motion.div
               whileHover={{ rotate: 360, scale: 1.2 }}
               transition={{ duration: 0.6 }}
@@ -120,21 +148,29 @@ const MindBodyQuests = () => {
                   display: 'flex', 
                   alignItems: 'center', 
                   justifyContent: 'center',
-                  marginRight: '10px',
+                  marginRight: '0px',
                   fontWeight: 'bold'
                 }}
               >
                 <BrainIcon />
               </Box>
             </motion.div>
-            <Typography variant="h6" sx={{ opacity: 0.9 }}>
+            <Typography variant="h6" sx={{ 
+                opacity: 0.9,
+                fontSize: { xs: '1rem', sm: '1.1rem', md: '1.15rem' }
+              }}>
               Mental Quests: Reading, meditation, learning, and problem-solving
             </Typography>
           </Box>
         </motion.div>
 
         <motion.div variants={itemVariants}>
-          <Box sx={{ display: 'flex', alignItems: 'center', marginBottom: "20px" }}>
+          <Box sx={{ 
+              display: 'flex', 
+              alignItems: 'center', 
+              mb: { xs: 2, md: '20px' },
+              justifyContent: { xs: '10% center', md: 'flex-start' } 
+            }}>
             <motion.div
               whileHover={{ rotate: 360, scale: 1.2 }}
               transition={{ duration: 0.6 }}
@@ -149,14 +185,17 @@ const MindBodyQuests = () => {
                   display: 'flex', 
                   alignItems: 'center', 
                   justifyContent: 'center',
-                  marginRight: '10px',
+                  marginRight: '0px',
                   fontWeight: 'bold'
                 }}
               >
                 <TuneIcon />
               </Box>
             </motion.div>
-            <Typography variant="h6" sx={{ opacity: 0.9 }}>
+            <Typography variant="h6" sx={{ 
+                opacity: 0.9,
+                fontSize: { xs: '1rem', sm: '1.1rem', md: '1.15rem' }
+              }}>
               Customizable difficulty levels to match your current abilities
             </Typography>
           </Box>
@@ -166,22 +205,32 @@ const MindBodyQuests = () => {
           variants={itemVariants}
           whileHover={{ scale: 1.02 }}
         >
-          <Typography variant="h6" sx={{ fontWeight: "bold", opacity: 0.8 }}>
+          <Typography variant="h6" sx={{ 
+              fontWeight: "bold", 
+              opacity: 0.8,
+              fontSize: { xs: '1rem', sm: '1.1rem', md: '1.15rem' }
+            }}>
             Develop a stronger body and sharper mind simultaneously.
           </Typography>
         </motion.div>
       </Box>
 
       {/* Right Side: Image */}
-      <Box sx={{ flex: "1", textAlign: "center", minWidth: "400px" }}>
+      <Box sx={{ 
+          flex: "1", 
+          textAlign: "center", 
+          minWidth: { xs: '80%', sm: '60%', md: '400px' },
+          maxWidth: { xs: '300px', md: '350px' },
+          order: { xs: 0, md: 1 }
+         }}>
         <motion.img
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          src="/images/mind-body.png" // Add this image to public/images folder
+          src="/images/mind-body.png"
           alt="Mind & Body Quests"
-          style={{ width: "100%", maxWidth: "350px", borderRadius: "20px" }}
+          style={{ width: "100%", height: "auto", maxWidth: "350px", borderRadius: "20px" }}
         />
       </Box>
     </Box>

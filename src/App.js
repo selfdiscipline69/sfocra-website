@@ -11,6 +11,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import ContactUsSection from "./pages/Contact"; // ✅ Import Contact Page
 import Navbar from "./components/Navbar"; // ✅ Import Navbar
+import './responsive.css';
 
 const App = () => {
   return (

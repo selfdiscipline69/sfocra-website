@@ -44,18 +44,25 @@ const HabitTracking = () => {
   return (
     <Box
       sx={{
-        width: "80%",
+        width: "100%",
         backgroundColor: "#222", 
         color: "#fff", 
-        padding: "100px 10%",
+        padding: { xs: '60px 15px', sm: '80px 10%', md: '100px 10%' },
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
+        flexDirection: { xs: 'column-reverse', md: 'row' },
         flexWrap: "wrap",
+        gap: { xs: 4, md: 2 }
       }}
     >
       {/* Left Side: Image */}
-      <Box sx={{ flex: "1", textAlign: "center", minWidth: "400px" }}>
+      <Box sx={{ 
+          flex: "1", 
+          textAlign: "center", 
+          minWidth: { xs: '80%', sm: '60%', md: '400px' },
+          maxWidth: { xs: '300px', md: '350px' }
+         }}>
         <motion.img
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -74,22 +81,39 @@ const HabitTracking = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
-        sx={{ flex: "1", minWidth: "400px" }}
+        sx={{ 
+          flex: "1", 
+          minWidth: { xs: '100%', md: '400px' },
+          textAlign: { xs: 'center', md: 'left' }
+        }}
       >
         <motion.div variants={itemVariants}>
-          <Typography variant="h3" sx={{ fontWeight: "bold", marginBottom: "40px" }}>
+          <Typography variant="h3" sx={{ 
+              fontWeight: "bold", 
+              mb: { xs: 3, md: '40px' },
+              fontSize: { xs: '1.5rem', sm: '1.8rem', md: '2.2rem' }
+            }}>
             Habit Tracking & Streaks
           </Typography>
         </motion.div>
 
         <motion.div variants={itemVariants}>
-          <Typography variant="h6" sx={{ marginBottom: "20px", opacity: 0.9 }}>
+          <Typography variant="h6" sx={{ 
+              mb: { xs: 2, md: '20px' },
+              opacity: 0.9,
+              fontSize: { xs: '1rem', sm: '1.1rem', md: '1.15rem' }
+            }}>
             Build consistency through visual feedback and streak mechanics.
           </Typography>
         </motion.div>
 
         <motion.div variants={itemVariants}>
-          <Box sx={{ display: 'flex', alignItems: 'center', marginBottom: "20px" }}>
+          <Box sx={{ 
+              display: 'flex', 
+              alignItems: 'left', 
+              mb: { xs: 2, md: '20px' },
+              justifyContent: { xs: 'left', md: 'flex-start' } 
+            }}>
             <motion.div
               whileHover={{ rotate: 360, scale: 1.2 }}
               transition={{ duration: 0.6 }}
@@ -104,21 +128,29 @@ const HabitTracking = () => {
                   display: 'flex', 
                   alignItems: 'center', 
                   justifyContent: 'center',
-                  marginRight: '10px',
+                  marginRight: '0px',
                   fontWeight: 'bold'
                 }}
               >
                 <CalendarIcon />
               </Box>
             </motion.div>
-            <Typography variant="h6" sx={{ opacity: 0.9 }}>
+            <Typography variant="h6" sx={{ 
+                opacity: 0.9,
+                fontSize: { xs: '1rem', sm: '1.1rem', md: '1.15rem' }
+              }}>
               Track daily, weekly, and monthly habits with visual calendars
             </Typography>
           </Box>
         </motion.div>
 
         <motion.div variants={itemVariants}>
-          <Box sx={{ display: 'flex', alignItems: 'center', marginBottom: "20px" }}>
+          <Box sx={{ 
+              display: 'flex', 
+              alignItems: 'left', 
+              mb: { xs: 4, md: '20px' },
+              justifyContent: { xs: 'left', md: 'flex-start' } 
+            }}>
             <motion.div
               whileHover={{ rotate: 360, scale: 1.2 }}
               transition={{ duration: 0.6 }}
@@ -133,21 +165,29 @@ const HabitTracking = () => {
                   display: 'flex', 
                   alignItems: 'center', 
                   justifyContent: 'center',
-                  marginRight: '10px',
+                  marginRight: '20px',
                   fontWeight: 'bold'
                 }}
               >
                 <FireIcon />
               </Box>
             </motion.div>
-            <Typography variant="h6" sx={{ opacity: 0.9 }}>
+            <Typography variant="h6" sx={{ 
+                opacity: 0.9,
+                fontSize: { xs: '1rem', sm: '1.1rem', md: '1.15rem' }
+              }}>
               Maintain streaks for extra motivation and rewards
             </Typography>
           </Box>
         </motion.div>
 
         <motion.div variants={itemVariants}>
-          <Box sx={{ display: 'flex', alignItems: 'center', marginBottom: "20px" }}>
+          <Box sx={{ 
+              display: 'flex', 
+              alignItems: 'left', 
+              mb: { xs: 2, md: '20px' },
+              justifyContent: { xs: 'left', md: 'flex-start' } 
+            }}>
             <motion.div
               whileHover={{ rotate: 360, scale: 1.2 }}
               transition={{ duration: 0.6 }}
@@ -162,14 +202,17 @@ const HabitTracking = () => {
                   display: 'flex', 
                   alignItems: 'center', 
                   justifyContent: 'center',
-                  marginRight: '10px',
+                  marginRight: '1px',
                   fontWeight: 'bold'
                 }}
               >
                 <TrendingUpIcon />
               </Box>
             </motion.div>
-            <Typography variant="h6" sx={{ opacity: 0.9 }}>
+            <Typography variant="h6" sx={{ 
+                opacity: 0.9,
+                fontSize: { xs: '1rem', sm: '1.1rem', md: '1.15rem' }
+              }}>
               Analyze your progress with detailed statistics and trends
             </Typography>
           </Box>
@@ -179,7 +222,11 @@ const HabitTracking = () => {
           variants={itemVariants}
           whileHover={{ scale: 1.02 }}
         >
-          <Typography variant="h6" sx={{ fontWeight: "bold", opacity: 0.8 }}>
+          <Typography variant="h6" sx={{ 
+              fontWeight: "bold", 
+              opacity: 0.8,
+              fontSize: { xs: '1rem', sm: '1.1rem', md: '1.15rem' }
+            }}>
             Turn occasional actions into lifelong habits that stick.
           </Typography>
         </motion.div>

@@ -1,0 +1,198 @@
+/* src/responsive.css */
+
+/* Prevent horizontal scrolling - Good practice */
+html,
+body {
+  overflow-x: hidden;
+  /* Consider adding 'box-sizing: border-box;' globally */
+  /* * { box-sizing: border-box; } */
+}
+
+/* --- General Responsive Helpers --- */
+
+/* Make images scale nicely */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block; /* Prevent extra space below inline images */
+}
+
+/* --- Tablet Styles --- */
+@media (max-width: 768px) {
+  body {
+    font-size: 95%; /* Slightly smaller base font, adjust as needed */
+    line-height: 1.5; /* Improve readability */
+  }
+
+  /* Example: Adjust main layout containers */
+  .main-content, .container, /* Add your main container classes */
+  main {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  /* Adjust grid layouts if used */
+  /* .grid-container {
+    grid-template-columns: 1fr; /* Stack grid items */
+  /* } */
+
+  /* Adjust navigation if needed for tablet */
+  /* nav ul {
+    flex-wrap: wrap; /* Allow nav items to wrap */
+  /* } */
+
+  /* Add other tablet-specific overrides here */
+}
+
+/* --- Mobile Styles --- */
+@media (max-width: 480px) {
+  body {
+    font-size: 90%; /* Adjust base font for small screens, ensure >= 16px effective size */
+    line-height: 1.6; /* More spacing for readability */
+  }
+
+  /* Reduce heading sizes further for small mobile */
+  /* How to adjust:
+     - Decrease the 'rem' value (e.g., 1.6rem -> 1.4rem) for smaller text.
+     - 'rem' units scale relative to the root font size (html element).
+     - Alternatively, use 'vw' (viewport width) units for fluid scaling,
+       e.g., font-size: clamp(1.2rem, 4vw, 1.6rem);
+       clamp(MIN, PREFERRED, MAX) prevents text from becoming too small or too large.
+  */
+  h1 {
+    font-size: 1.6rem; /* Reduced from 1.8rem. Adjust further if needed. */
+    margin-bottom: 15px;
+    line-height: 1.3; /* Adjust line-height for tighter multi-line headings */
+  }
+
+  h2 {
+    font-size: 1.4rem; /* Reduced from 1.5rem. Adjust as needed */
+    margin-bottom: 12px;
+  }
+
+  h3 {
+    font-size: 1.1rem; /* Reduced from 1.2rem. Adjust as needed */
+    margin-bottom: 10px;
+  }
+
+  /* Basic Paragraph / Text styling */
+  p, li {
+      font-size: 1rem; /* Ensure readable text (usually translates to ~16px) */
+      margin-bottom: 1em;
+  }
+
+  /* --- Component Adjustment Suggestions (Implement in React) --- */
+
+  /* Navigation: Specific styles for mobile nav elements */
+  nav {
+    padding: 8px 0; /* Slightly reduce nav padding */
+    /* Add styles for the navbar container itself if needed */
+    /* e.g., .navbar { display: flex; align-items: center; justify-content: space-between; } */
+  }
+
+  /* Style for the brand/logo (e.g., "SFOCRA") */
+  /* Add a class like '.navbar-brand' to your logo/text element in the Navbar component */
+  .navbar-brand { /* Or use the actual selector for your logo/brand */
+      font-size: 0.1rem; /* Adjust size for SFOCRA text */
+      font-weight: bold; /* Keep it prominent */
+      margin-right: auto; /* Pushes button to the right if using flex */
+      padding-left: 15px; /* Align with main content padding */
+  }
+
+  /* Adjust navbar button (e.g., Contact) specifically */
+  /* Add a class like '.navbar-button' or target it directly */
+  .navbar .button, /* Assuming button/link has class 'button' */
+  nav button {
+    padding: 6px 12px; /* Reduced padding for smaller nav button */
+    font-size: 0.9rem; /* Slightly smaller font for nav button */
+    min-height: 36px; /* Adjust min-height if needed */
+    min-width: auto;  /* Let width be determined by content */
+    margin: 0; /* Reset margins if needed */
+    margin-right: 15px; /* Add some space on the right */
+    max-width: none; /* Remove max-width constraint if set globally */
+    white-space: nowrap; /* Prevent button text from wrapping */
+  }
+
+  /* --- Hamburger Menu Styles (If implemented) --- */
+  /* Hide desktop nav, show mobile toggle */
+  /* .desktop-nav { display: none; } */
+  /* .mobile-nav-toggle { display: block; ... } */
+  /* Style the revealed mobile menu (position, background, etc.) */
+  /* .mobile-menu { ... } */
+
+  nav ul {
+      /* If not using hamburger, stack nav items */
+      /* flex-direction: column; */
+      /* align-items: center; */
+      /* gap: 10px; */
+  }
+  nav a {
+      padding: 10px 15px; /* Ensure tappable area */
+      display: block; /* Make links easier to tap */
+  }
+
+
+  /* Main Content: Stack sections vertically */
+  main, .main-content {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  section {
+      margin-bottom: 30px; /* Add space between stacked sections */
+  }
+
+  /* Footer: Simplify layout */
+  footer {
+    text-align: center; /* Center footer content */
+    padding: 15px;
+  }
+  footer .footer-columns { /* If footer uses columns */
+    flex-direction: column;
+    gap: 15px;
+  }
+
+
+  /* --- General Element Styling --- */
+
+  /* Ensure buttons are easily tappable - General Button rule */
+  /* Note: Specific rules like '.navbar button' above will override these */
+  button,
+  a.button, /* Style links like buttons if needed */
+  input[type="submit"] {
+    padding: 12px 20px; /* Comfortable padding */
+    min-height: 48px; /* Minimum touch target height */
+    min-width: 48px; /* Minimum touch target width */
+    font-size: 1rem; /* Readable text */
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: auto; /* Adjust width as needed, maybe max-width */
+    max-width: 90%; /* Prevent excessive width */
+    display: inline-block; /* Or block if they should take full width */
+    cursor: pointer;
+  }
+
+  /* Helper class for stacking flex containers */
+  .flex-container-responsive {
+    flex-direction: column;
+    align-items: center; /* Or 'stretch' or 'flex-start' */
+    gap: 15px; /* Space between stacked items */
+  }
+
+  /* Helper for elements with specific background needs */
+  .background-element {
+    background-size: cover;
+    background-position: center center;
+  }
+
+  /* --- Performance Optimization Notes (Consider implementing) --- */
+  /* 1. Images: Already handled with img { max-width: 100%; height: auto; } */
+  /* 2. Lazy Loading: For images below the fold, use native lazy loading:
+        <img src="image.jpg" loading="lazy" alt="..." width="..." height="...">
+     Or use a React library (e.g., react-lazyload). */
+  /* 3. Optimize Image Files: Compress images (JPEG, WebP) before uploading. */
+  /* 4. CSS/JS Minification: Ensure build tools minify CSS and JS. */
+
+
+  /* Add any other essential mobile-specific overrides */
+
+} 

@@ -43,7 +43,15 @@ const Navbar = () => {
             />
             <Typography 
               variant="h2" 
-              sx={{ fontWeight: "bold", color: "white" }}
+              sx={{ 
+                fontWeight: "bold", 
+                color: "white",
+                fontSize: { 
+                  xs: '1.3rem',
+                  sm: '1.8rem',
+                  md: '2.5rem',
+                },
+              }}
             >
               SFOCRA
             </Typography>
@@ -62,13 +70,14 @@ const Navbar = () => {
               sx={{ 
                 color: "white", 
                 textTransform: "none", 
-                fontSize: "18px", 
-                padding: "12px 24px",
                 backgroundColor: "red", 
                 borderRadius: "30px", 
                 "&:hover": { 
                   backgroundColor: "darkred" 
-                } 
+                },
+                fontSize: { xs: '0.9rem', sm: '1rem', md: '1.125rem' },
+                padding: { xs: '6px 12px', sm: '8px 16px', md: '12px 24px' },
+                marginRight: { xs: '10px', sm: '0' }
               }}
             >
               Contact

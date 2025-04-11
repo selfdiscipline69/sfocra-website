@@ -63,7 +63,7 @@ const ContactUsSection = () => {
       <Box 
         sx={{ 
           width: "100%", 
-          py: 20, 
+          py: { xs: 10, sm: 15, md: 20 }, 
           display: "flex", 
           justifyContent: "center", 
           backgroundImage: "url('/images/contact-bg.png')",
@@ -71,17 +71,18 @@ const ContactUsSection = () => {
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
           position: "relative",
-          color: "white"
+          color: "white",
+          px: { xs: 2, sm: 3, md: 0 }
         }}
       >
 
         
         <Box 
           sx={{ 
-            maxWidth: "600px", 
+            maxWidth: { xs: '95%', sm: '80%', md: '600px' }, 
             width: "100%", 
             backgroundColor: "rgba(34, 34, 34, 0.85)", 
-            p: 5, 
+            p: { xs: 3, sm: 4, md: 5 }, 
             borderRadius: "20px", 
             boxShadow: "0 10px 30px rgba(0, 0, 0, 0.5)",
             position: "relative",
@@ -89,12 +90,24 @@ const ContactUsSection = () => {
             backdropFilter: "blur(10px)"
           }}
         >
-          <Typography variant="h4" sx={{ fontWeight: "bold", mb: 3, textAlign: "center" }}>
+          <Typography variant="h4" sx={{ 
+              fontWeight: "bold", 
+              mb: 3, 
+              textAlign: "center",
+              fontSize: { xs: '1.8rem', sm: '2rem', md: '2.125rem' }
+            }}>
             Contact Us
           </Typography>
 
           {submitted ? (
-            <Typography variant="h6" sx={{ color: "#4caf50", textAlign: "center", mt: 3, py: 10, fontWeight: "bold" }}>
+            <Typography variant="h6" sx={{ 
+                color: "#4caf50", 
+                textAlign: "center", 
+                mt: 3, 
+                py: { xs: 5, md: 10 },
+                fontWeight: "bold",
+                fontSize: { xs: '1.1rem', sm: '1.2rem', md: '1.25rem' }
+              }}>
               Thank you! Your message has been sent.
             </Typography>
           ) : (
@@ -109,6 +122,8 @@ const ContactUsSection = () => {
                     variant="outlined"
                     value={formData.firstName}
                     onChange={handleChange}
+                    InputLabelProps={{ sx: { fontSize: { xs: '0.9rem', sm: '1rem' } } }}
+                    inputProps={{ sx: { fontSize: { xs: '0.9rem', sm: '1rem' } } }}
                     sx={{ backgroundColor: "rgba(255, 255, 255, 0.9)", borderRadius: "5px" }}
                   />
                 </Grid>
@@ -122,6 +137,8 @@ const ContactUsSection = () => {
                     variant="outlined"
                     value={formData.lastName}
                     onChange={handleChange}
+                    InputLabelProps={{ sx: { fontSize: { xs: '0.9rem', sm: '1rem' } } }}
+                    inputProps={{ sx: { fontSize: { xs: '0.9rem', sm: '1rem' } } }}
                     sx={{ backgroundColor: "rgba(255, 255, 255, 0.9)", borderRadius: "5px" }}
                   />
                 </Grid>
@@ -136,6 +153,8 @@ const ContactUsSection = () => {
                 sx={{ mt: 2, backgroundColor: "rgba(255, 255, 255, 0.9)", borderRadius: "5px" }}
                 value={formData.email}
                 onChange={handleChange}
+                InputLabelProps={{ sx: { fontSize: { xs: '0.9rem', sm: '1rem' } } }}
+                inputProps={{ sx: { fontSize: { xs: '0.9rem', sm: '1rem' } } }}
               />
 
               {/* Phone Number */}
@@ -147,6 +166,8 @@ const ContactUsSection = () => {
                 sx={{ mt: 2, backgroundColor: "rgba(255, 255, 255, 0.9)", borderRadius: "5px" }}
                 value={formData.phone}
                 onChange={handleChange}
+                InputLabelProps={{ sx: { fontSize: { xs: '0.9rem', sm: '1rem' } } }}
+                inputProps={{ sx: { fontSize: { xs: '0.9rem', sm: '1rem' } } }}
               />
 
               {/* Inquiry Type Dropdown */}
@@ -159,12 +180,14 @@ const ContactUsSection = () => {
                 sx={{ mt: 2, backgroundColor: "rgba(255, 255, 255, 0.9)", borderRadius: "5px" }}
                 value={formData.inquiryType}
                 onChange={handleChange}
+                InputLabelProps={{ sx: { fontSize: { xs: '0.9rem', sm: '1rem' } } }}
+                SelectProps={{ sx: { fontSize: { xs: '0.9rem', sm: '1rem' } } }}
               >
-                <MenuItem value="">Select an option</MenuItem>
-                <MenuItem value="Support">Technical Support</MenuItem>
-                <MenuItem value="Feedback">Feedback & Suggestions</MenuItem>
-                <MenuItem value="Collaboration">Business Collaboration</MenuItem>
-                <MenuItem value="Other">Other Inquiry</MenuItem>
+                <MenuItem value="" sx={{ fontSize: { xs: '0.9rem', sm: '1rem' } }}>Select an option</MenuItem>
+                <MenuItem value="Support" sx={{ fontSize: { xs: '0.9rem', sm: '1rem' } }}>Technical Support</MenuItem>
+                <MenuItem value="Feedback" sx={{ fontSize: { xs: '0.9rem', sm: '1rem' } }}>Feedback & Suggestions</MenuItem>
+                <MenuItem value="Collaboration" sx={{ fontSize: { xs: '0.9rem', sm: '1rem' } }}>Business Collaboration</MenuItem>
+                <MenuItem value="Other" sx={{ fontSize: { xs: '0.9rem', sm: '1rem' } }}>Other Inquiry</MenuItem>
               </TextField>
 
               {/* Message */}
@@ -178,6 +201,8 @@ const ContactUsSection = () => {
                 sx={{ mt: 2, backgroundColor: "rgba(255, 255, 255, 0.9)", borderRadius: "5px" }}
                 value={formData.message}
                 onChange={handleChange}
+                InputLabelProps={{ sx: { fontSize: { xs: '0.9rem', sm: '1rem' } } }}
+                inputProps={{ sx: { fontSize: { xs: '0.9rem', sm: '1rem' } } }}
               />
 
               {/* Submit Button with Loading State */}
@@ -187,8 +212,8 @@ const ContactUsSection = () => {
                 fullWidth
                 sx={{ 
                   mt: 3, 
-                  py: 1.5, 
-                  fontSize: "16px", 
+                  py: { xs: 1.2, sm: 1.5 }, 
+                  fontSize: { xs: '1rem', sm: '1rem' },
                   borderRadius: "10px", 
                   backgroundColor: "red", 
                   color: "white",

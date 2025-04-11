@@ -55,18 +55,27 @@ const RPGProgression = () => {
   return (
     <Box
       sx={{
-        width: "80%",
+        width: "100%", // Full width
         backgroundColor: "#222", 
         color: "white", 
-        padding: "100px 10%",
+        // Responsive padding
+        padding: { xs: '60px 15px', sm: '80px 10%', md: '100px 10%' },
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        flexWrap: "wrap",
+        // Allow wrapping and change direction on small screens
+        flexDirection: { xs: 'column-reverse', md: 'row' }, // Image below text on mobile
+        flexWrap: "wrap", // Keep wrap just in case
+        gap: { xs: 4, md: 2 } // Add gap between items, more on mobile
       }}
     >
       {/* Left Side: Image */}
-      <Box sx={{ flex: "1", textAlign: "center", minWidth: "400px" }}>
+      <Box sx={{ 
+          flex: "1", 
+          textAlign: "center", 
+          minWidth: { xs: '60%', sm: '60%', md: '400px' }, // Adjust width for mobile
+          maxWidth: { xs: '300px', md: '350px' } // Control max size
+         }}>
         <motion.img
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -86,16 +95,30 @@ const RPGProgression = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
-        sx={{ flex: "1", minWidth: "400px" }}
+        sx={{ 
+          flex: "1", 
+          minWidth: { xs: '100%', md: '400px' }, // Full width on mobile
+          textAlign: { xs: '30% center', md: 'left' } // Center text on mobile
+        }}
       >
         <motion.div variants={itemVariants}>
-          <Typography variant="h3" sx={{ fontWeight: "bold", marginBottom: "40px" }}>
+          <Typography variant="h3" sx={{ 
+              fontWeight: "bold", 
+              mb: { xs: 3, md: '40px' }, // Responsive margin-bottom
+              // Responsive font size
+              fontSize: { xs: '1.5rem', sm: '1.8rem', md: '2.2rem' }
+            }}>
             RPG Progression
           </Typography>
         </motion.div>
 
         <motion.div variants={itemVariants}>
-          <Typography variant="h6" sx={{ marginBottom: "20px", opacity: 0.9 }}>
+          <Typography variant="h6" sx={{ 
+              mb: { xs: 2, md: '20px' }, // Responsive margin-bottom
+              opacity: 0.9,
+              // Responsive font size
+              fontSize: { xs: '1rem', sm: '1.1rem', md: '1.15rem' }
+            }}>
             Transform your self-improvement journey into an exciting role-playing adventure.
           </Typography>
         </motion.div>
@@ -123,7 +146,11 @@ const RPGProgression = () => {
                 <StarIcon />
               </Box>
             </motion.div>
-            <Typography variant="h6" sx={{ opacity: 0.9 }}>
+            <Typography variant="h6" sx={{ 
+                opacity: 0.9,
+                // Responsive font size
+                fontSize: { xs: '1rem', sm: '1.1rem', md: '1.15rem' }
+              }}>
               Earn XP for every completed task and watch your character level up
             </Typography>
           </Box>
@@ -152,7 +179,11 @@ const RPGProgression = () => {
                 <TrophyIcon />
               </Box>
             </motion.div>
-            <Typography variant="h6" sx={{ opacity: 0.9 }}>
+            <Typography variant="h6" sx={{ 
+                opacity: 0.9,
+                // Responsive font size
+                fontSize: { xs: '1rem', sm: '1.1rem', md: '1.15rem' }
+              }}>
               Unlock achievements and badges as you hit milestones
             </Typography>
           </Box>
@@ -181,7 +212,11 @@ const RPGProgression = () => {
                 <ChartIcon />
               </Box>
             </motion.div>
-            <Typography variant="h6" sx={{ opacity: 0.9 }}>
+            <Typography variant="h6" sx={{ 
+                opacity: 0.9,
+                // Responsive font size
+                fontSize: { xs: '1rem', sm: '1.1rem', md: '1.15rem' }
+              }}>
               Track your progress with intuitive, gamified visualizations
             </Typography>
           </Box>
@@ -191,7 +226,12 @@ const RPGProgression = () => {
           variants={itemVariants}
           whileHover={{ scale: 1.02 }}
         >
-          <Typography variant="h6" sx={{ fontWeight: "bold", opacity: 0.8 }}>
+          <Typography variant="h6" sx={{ 
+              fontWeight: "bold", 
+              opacity: 0.8,
+              // Responsive font size
+              fontSize: { xs: '1rem', sm: '1.1rem', md: '1.15rem' }
+            }}>
             Make self-improvement feel less like work and more like play.
           </Typography>
         </motion.div>

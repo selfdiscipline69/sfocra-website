@@ -68,20 +68,40 @@ const Features = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
-        sx={{ flex: "1", minWidth: "400px" }}
+        sx={{ 
+          flex: "1", 
+          minWidth: { xs: '100%', md: '400px' }, // Take full width on mobile, 400px otherwise
+          pr: { xs: 0, md: 3 } // Add some padding-right on larger screens
+        }}
       >
         <motion.div variants={itemVariants}>
           <Typography 
             variant="h3" 
-            sx={{ fontWeight: "bold", marginBottom: "50px" }} // Increased bottom margin for more height
+            sx={{ 
+              fontWeight: "bold", 
+              mb: { xs: 3, md: '50px' }, // Adjust margin-bottom responsively (mb stands for margin-bottom)
+              // Responsive font size
+              fontSize: { xs: '1.5rem', sm: '1.8rem', md: '2.2rem' }, // Adjust h3 size
+              textAlign: { xs: 'center', md: 'left' } // Center text on mobile
+            }}
           >
             Features
           </Typography>
         </motion.div>
 
         <motion.div variants={itemVariants}>
-          <Typography variant="h6" sx={{ marginBottom: "40px" }}>
-            <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          <Typography variant="h6" sx={{ 
+              mb: { xs: 2, md: '40px' }, // Adjust margin-bottom responsively
+              // Responsive font size for feature text
+              fontSize: { xs: '1rem', sm: '1.1rem', md: '1.15rem' }, // Adjust h6 size slightly
+              textAlign: { xs: 'center', md: 'left' } // Center text on mobile
+            }}>
+            <Box sx={{ 
+                display: 'flex', 
+                alignItems: 'center', 
+                // Center content within the box on mobile
+                justifyContent: { xs: 'center', md: 'flex-start' }
+              }}>
               <motion.div
                 whileHover={{ rotate: 360, scale: 1.2 }}
                 transition={{ duration: 0.6 }}
@@ -109,8 +129,18 @@ const Features = () => {
         </motion.div>
         
         <motion.div variants={itemVariants}>
-          <Typography variant="h6" sx={{ marginBottom: "40px" }}>
-            <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          <Typography variant="h6" sx={{ 
+              mb: { xs: 2, md: '40px' }, // Adjust margin-bottom responsively
+              // Responsive font size for feature text
+              fontSize: { xs: '1rem', sm: '1.1rem', md: '1.15rem' }, // Adjust h6 size slightly
+              textAlign: { xs: 'center', md: 'left' } // Center text on mobile
+            }}>
+            <Box sx={{ 
+                display: 'flex', 
+                alignItems: 'center', 
+                // Center content within the box on mobile
+                justifyContent: { xs: 'center', md: 'flex-start' }
+              }}>
               <motion.div
                 whileHover={{ rotate: 360, scale: 1.2 }}
                 transition={{ duration: 0.6 }}
@@ -138,8 +168,18 @@ const Features = () => {
         </motion.div>
         
         <motion.div variants={itemVariants}>
-          <Typography variant="h6" sx={{ marginBottom: "40px" }}>
-            <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          <Typography variant="h6" sx={{ 
+              mb: { xs: 2, md: '40px' }, // Adjust margin-bottom responsively
+              // Responsive font size for feature text
+              fontSize: { xs: '1rem', sm: '1.1rem', md: '1.15rem' }, // Adjust h6 size slightly
+              textAlign: { xs: 'center', md: 'left' } // Center text on mobile
+            }}>
+            <Box sx={{ 
+                display: 'flex', 
+                alignItems: 'center', 
+                // Center content within the box on mobile
+                justifyContent: { xs: 'center', md: 'flex-start' }
+              }}>
               <motion.div
                 whileHover={{ rotate: 360, scale: 1.2 }}
                 transition={{ duration: 0.6 }}
@@ -167,8 +207,20 @@ const Features = () => {
         </motion.div>
         
         <motion.div variants={itemVariants}>
-          <Typography variant="h6" sx={{ fontWeight: "bold", opacity: 0.8, marginBottom: "40px" }}>
-            <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          <Typography variant="h6" sx={{ 
+              fontWeight: "bold", 
+              opacity: 0.8, 
+              mb: { xs: 4, md: '40px' }, // Adjust margin-bottom responsively
+              // Responsive font size for feature text
+              fontSize: { xs: '1rem', sm: '1.1rem', md: '1.15rem' }, // Adjust h6 size slightly
+              textAlign: { xs: 'center', md: 'left' } // Center text on mobile
+            }}>
+            <Box sx={{ 
+                display: 'flex', 
+                alignItems: 'center', 
+                // Center content within the box on mobile
+                justifyContent: { xs: 'center', md: 'flex-start' }
+              }}>
               <motion.div
                 whileHover={{ rotate: 360, scale: 1.2 }}
                 transition={{ duration: 0.6 }}
@@ -204,7 +256,8 @@ const Features = () => {
           justifyContent: "space-around", 
           flexWrap: "wrap", 
           gap: "20px", 
-          minWidth: "400px" 
+          minWidth: { xs: '100%', md: '400px' }, // Take full width on mobile
+          mt: { xs: 4, md: 0 } // Add margin-top on mobile to separate from text
         }}
       >
         {/* First Image */}
