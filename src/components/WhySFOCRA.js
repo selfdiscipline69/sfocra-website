@@ -76,9 +76,9 @@ const WhySFOCRA = () => {
               opacity: 0.9,
               fontSize: { xs: '1rem', sm: '1.1rem', md: '1.15rem' }
             }}>
-            The name breaks down into three powerful concepts: 
-            <strong>S</strong> for Singularity (excellence); 
-            <strong>FOC</strong> - for Focus (clarity and determination);  and  
+            The name breaks down into three powerful concepts: <br />
+            <strong>S</strong> for Singularity (excellence); <br />
+            <strong>FOC</strong> - for Focus (clarity and determination); <br />
             <strong> RA</strong> for Aura (your personal energy and presence).
           </Typography>
         </motion.div>
@@ -101,7 +101,7 @@ const WhySFOCRA = () => {
             }}>
             <Box sx={{ 
                 display: 'flex', 
-                alignItems: 'center', 
+                alignItems: 'left', 
                 justifyContent: { xs: 'center', sm: 'flex-start' } 
               }}>
               <motion.div
@@ -125,7 +125,7 @@ const WhySFOCRA = () => {
                   <SwordIcon />
                 </Box>
               </motion.div>
-              <strong>Singularity =</strong> Striving for excellence and mastery in all areas of life.
+              <strong>Singularity</strong> Striving for excellence and mastery in all areas of life.
             </Box>
           </Typography>
         </motion.div>
@@ -162,7 +162,7 @@ const WhySFOCRA = () => {
                   <BrainIcon />
                 </Box>
               </motion.div>
-              <strong>Focus + Aura =</strong> Directing your energy with clarity while developing your personal presence.
+              <strong>Focus + Aura </strong> Directing your energy with clarity while developing your personal presence.
             </Box>
           </Typography>
         </motion.div>
@@ -173,7 +173,7 @@ const WhySFOCRA = () => {
               opacity: 0.9,
               fontSize: { xs: '1rem', sm: '1.1rem', md: '1.15rem' }
             }}>
-            Just like in RPGs where characters level up, SFOCRA is about leveling up your real-life skills—your body, mind, and habits—
+            Just like in <strong>RPGs</strong> where characters level up, <strong>SFOCRA</strong>  is about leveling up your real-life skills—your body, mind, and habits—
             to become the best version of yourself.
           </Typography>
         </motion.div>

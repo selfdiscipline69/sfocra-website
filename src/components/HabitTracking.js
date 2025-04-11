@@ -226,7 +226,8 @@ const HabitTracking = () => {
           <Typography variant="h6" sx={{ 
               fontWeight: "bold", 
               opacity: 0.8,
-              fontSize: { xs: '1rem', sm: '1.1rem', md: '1.15rem' }
+              fontSize: { xs: '1rem', sm: '1.1rem', md: '1.15rem' },
+              marginRight: { xs: '30px', md: '20px' }, // Add margin to the right on larger screens
             }}>
             Turn occasional actions into lifelong habits that stick.
           </Typography>

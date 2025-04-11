@@ -47,7 +47,7 @@ const HeroSection = () => {
           zIndex: 2, 
           maxWidth: { xs: '90%', sm: '70%', md: '50%' },
           textAlign: { xs: 'left', sm: 'left' },
-          mt: { xs: '13vh', sm: '15vh', md: '20vh' },
+          mt: { xs: '5vh', sm: '15vh', md: '20vh' },
           mx: { xs: 'initial', sm: 'initial' }
         }}>
         <motion.div
@@ -74,17 +74,17 @@ const HeroSection = () => {
           <Button
             variant="contained"
             sx={{
-              mt: 3,
+              mt: 5,
               backgroundColor: "red",
               color: "white",
-              padding: { xs: '10px 20px', sm: '12px 24px' },
+              padding: { xs: '5px 10px', sm: '12px 24px' },
               fontSize: { xs: '1rem', sm: '1.125rem'},
               borderRadius: "30px",
               transition: "all 0.3s ease",
             }}
             onClick={() => navigate("/download")}
           >
-            Download Now iOS
+            Download (ios)
           </Button>
         </motion.div>
       </Box>
