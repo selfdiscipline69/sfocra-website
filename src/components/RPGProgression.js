@@ -97,14 +97,15 @@ const RPGProgression = () => {
         viewport={{ once: true, amount: 0.2 }}
         sx={{ 
           flex: "1", 
-          minWidth: { xs: '100%', md: '400px' }, // Full width on mobile
-          textAlign: { xs: '30% center', md: 'left' } // Center text on mobile
+          marginRight: { xs: '30px', md: '20px' }, // Add margin to the right on larger screens
+          minWidth: { xs: '90%', md: '400px' }, // Full width on mobile
+          textAlign: { xs: 'center', md: 'center' } // Center text on mobile
         }}
       >
         <motion.div variants={itemVariants}>
           <Typography variant="h3" sx={{ 
               fontWeight: "bold", 
-              mb: { xs: 3, md: '40px' }, // Responsive margin-bottom
+              mb: { xs: 2, md: '40px' }, // Responsive margin-bottom
               // Responsive font size
               fontSize: { xs: '1.5rem', sm: '1.8rem', md: '2.2rem' }
             }}>
@@ -124,7 +125,7 @@ const RPGProgression = () => {
         </motion.div>
 
         <motion.div variants={itemVariants}>
-          <Box sx={{ display: 'flex', alignItems: 'center', marginBottom: "20px" }}>
+          <Box sx={{ display: 'flex', alignItems: 'left', marginBottom: "20px" }}>
             <motion.div
               whileHover={{ rotate: 360, scale: 1.2 }}
               transition={{ duration: 0.6 }}
@@ -157,7 +158,7 @@ const RPGProgression = () => {
         </motion.div>
 
         <motion.div variants={itemVariants}>
-          <Box sx={{ display: 'flex', alignItems: 'center', marginBottom: "20px" }}>
+          <Box sx={{ display: 'flex', alignItems: 'left', marginBottom: "20px" }}>
             <motion.div
               whileHover={{ rotate: 360, scale: 1.2 }}
               transition={{ duration: 0.6 }}
@@ -190,7 +191,7 @@ const RPGProgression = () => {
         </motion.div>
 
         <motion.div variants={itemVariants}>
-          <Box sx={{ display: 'flex', alignItems: 'center', marginBottom: "20px" }}>
+          <Box sx={{ display: 'flex', alignItems: 'left', marginBottom: "20px" }}>
             <motion.div
               whileHover={{ rotate: 360, scale: 1.2 }}
               transition={{ duration: 0.6 }}

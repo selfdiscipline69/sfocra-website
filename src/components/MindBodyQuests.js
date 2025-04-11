@@ -65,6 +65,7 @@ const MindBodyQuests = () => {
         viewport={{ once: true, amount: 0.2 }}
         sx={{ 
           flex: "1", 
+          marginRight: { xs: '30px', md: '20px' }, // Add margin to the right on larger screens
           minWidth: { xs: '90%', md: '400px' },
           textAlign: { xs: 'center', md: 'left' },
           order: { xs: 1, md: 0 }
@@ -148,7 +149,7 @@ const MindBodyQuests = () => {
                   display: 'flex', 
                   alignItems: 'center', 
                   justifyContent: 'center',
-                  marginRight: '0px',
+                  marginRight: '10px',
                   fontWeight: 'bold'
                 }}
               >
@@ -185,7 +186,7 @@ const MindBodyQuests = () => {
                   display: 'flex', 
                   alignItems: 'center', 
                   justifyContent: 'center',
-                  marginRight: '0px',
+                  marginRight: '10px',
                   fontWeight: 'bold'
                 }}
               >

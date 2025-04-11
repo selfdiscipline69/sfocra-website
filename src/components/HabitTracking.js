@@ -84,7 +84,8 @@ const HabitTracking = () => {
         sx={{ 
           flex: "1", 
           minWidth: { xs: '100%', md: '400px' },
-          textAlign: { xs: 'center', md: 'left' }
+          textAlign: { xs: 'center', md: 'left' },
+          marginRight: { xs: '30px', md: '20px' }, // Add margin to the right on larger screens
         }}
       >
         <motion.div variants={itemVariants}>
