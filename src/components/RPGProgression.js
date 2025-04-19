@@ -99,7 +99,7 @@ const RPGProgression = () => {
           flex: "1", 
           marginRight: { xs: '30px', md: '20px' }, // Add margin to the right on larger screens
           minWidth: { xs: '90%', md: '400px' }, // Full width on mobile
-          textAlign: { xs: 'center', md: 'center' } // Center text on mobile
+          textAlign: { xs: 'center', md: 'left' } // Center text on mobile
         }}
       >
         <motion.div variants={itemVariants}>

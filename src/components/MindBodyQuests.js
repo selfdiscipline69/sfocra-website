@@ -50,10 +50,10 @@ const MindBodyQuests = () => {
         padding: { xs: '60px 15px', sm: '80px 10%', md: '100px 10%' },
         display: "flex",
         alignItems: "center",
-        justifyContent: "space-between",
+        justifyContent: { xs: 'center', md: 'left' },
         flexDirection: { xs: 'column', md: 'row' },
         flexWrap: "wrap",
-        gap: { xs: 4, md: 2 }
+        gap: { xs: 4, md: 25 }
       }}
     >
       {/* Left Side: Text Content */}
@@ -64,11 +64,12 @@ const MindBodyQuests = () => {
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
         sx={{ 
-          flex: "1", 
-          marginRight: { xs: '30px', md: '20px' }, // Add margin to the right on larger screens
-          minWidth: { xs: '90%', md: '400px' },
+          flex: { md: "1" },
+          maxWidth: { md: '550px' },
+          marginRight: { xs: '0px', md: '20px' },
+          minWidth: { xs: '90%', md: 'auto' },
           textAlign: { xs: 'center', md: 'left' },
-          order: { xs: 1, md: 0 }
+          order: { xs: 0, md: 0 },
         }}
       >
         <motion.div variants={itemVariants}>
@@ -219,10 +220,13 @@ const MindBodyQuests = () => {
       {/* Right Side: Image */}
       <Box sx={{ 
           flex: "1", 
-          textAlign: "center", 
-          minWidth: { xs: '80%', sm: '60%', md: '400px' },
+          display: "flex",
+          justifyContent: "right",
+          alignItems: "right", 
+          width: { md: 'auto' },
+          minWidth: { xs: '80%', sm: '60%', md: 'auto' },
           maxWidth: { xs: '300px', md: '350px' },
-          order: { xs: 0, md: 1 }
+          order: { xs: 1, md: 1 }
          }}>
         <motion.img
           initial={{ opacity: 0, x: 30 }}
