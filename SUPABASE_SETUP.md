@@ -1,42 +1,81 @@
-# Supabase Authentication Setup
+# Supabase Setup for SFOCRA Website
 
-This project uses Supabase for authentication. Follow these steps to set up Supabase authentication for this application:
+This guide will help you set up the Supabase backend for the SFOCRA website's email collection features.
 
-## 1. Set up Supabase project
+## 1. Create a Supabase Account
 
-1. Create a Supabase account at [https://supabase.com](https://supabase.com) and create a new project
-2. Navigate to Authentication > Settings in your Supabase dashboard
-3. Configure the authentication providers you want to use (Email, OAuth, etc.)
+1. Go to [Supabase](https://supabase.com/) and sign up for an account
+2. Create a new project
 
-## 2. Configure Site URL and Redirect URLs
+## 2. Configure Environment Variables
 
-1. In the Supabase dashboard, go to Authentication > URL Configuration
-2. Set Site URL to your production URL (e.g., `https://yourdomain.com`) or localhost for development (e.g., `http://localhost:3000`)
-3. Add Redirect URLs:
-   - For email confirmations: `https://yourdomain.com/auth/callback` (or `http://localhost:3000/auth/callback` for local development)
+1. Copy your Supabase project URL and anon key from the API settings page
+2. Create a `.env` file in the root of the project with the following variables:
+   ```
+   REACT_APP_SUPABASE_URL=your_supabase_url_here
+   REACT_APP_SUPABASE_ANON_KEY=your_supabase_anon_key_here
+   ```
 
-## 3. Configure Environment Variables
+## 3. Create Database Tables
 
-Create a `.env` file in the project root with the following variables:
+Run the following SQL in the Supabase SQL Editor:
 
+```sql
+-- Table for waitlist signups from the hero section
+CREATE TABLE waitlist_signups (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  email TEXT NOT NULL UNIQUE,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  source TEXT, -- to track where the signup came from
+  CONSTRAINT email_format CHECK (email ~* '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$')
+);
+
+-- Table for contact form submissions
+CREATE TABLE contact_submissions (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  first_name TEXT,
+  last_name TEXT,
+  email TEXT NOT NULL,
+  phone TEXT,
+  inquiry_type TEXT,
+  message TEXT,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  subscribed_to_newsletter BOOLEAN DEFAULT TRUE,
+  CONSTRAINT email_format CHECK (email ~* '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$')
+);
+
+-- Create appropriate policies to control access
+-- For contact submissions (insert only, no select/update/delete from client)
+CREATE POLICY "Allow anonymous contact submissions" 
+  ON contact_submissions 
+  FOR INSERT 
+  TO anon 
+  WITH CHECK (true);
+
+-- For waitlist signups (insert only, no select/update/delete from client)
+CREATE POLICY "Allow anonymous waitlist signups" 
+  ON waitlist_signups 
+  FOR INSERT 
+  TO anon 
+  WITH CHECK (true);
 ```
-REACT_APP_SUPABASE_URL=your_supabase_url
-REACT_APP_SUPABASE_ANON_KEY=your_supabase_anon_key
-```
 
-Replace `your_supabase_url` and `your_supabase_anon_key` with the actual values from your Supabase project settings.
+## 4. Email Export (Optional)
 
-## 4. Test Authentication Flow
+To export the emails for marketing:
 
-1. Make sure the application is running
-2. Go to your sign-up page and register with an email
-3. Check your email for the confirmation link
-4. Click the link and you should be redirected to the `/auth/callback` page
-5. The page will handle the email confirmation process and redirect to the home page upon success
+1. Go to the Supabase Table Editor
+2. Select the relevant table
+3. Click "Export" and choose CSV format
+4. Import the CSV into your preferred email marketing tool
 
-## Troubleshooting
+## 5. Setting Up Email Notifications (Optional)
 
-- Make sure your Site URL and Redirect URLs are correctly configured in Supabase
-- Check browser console for any errors
-- Verify that environment variables are correctly set and accessible
-- Ensure that the callback route is properly defined in your application 
+You can set up email notifications using Supabase Edge Functions:
+
+1. Install Supabase CLI
+2. Create a new Edge Function that sends email notifications when new entries are created
+3. Deploy the function with `supabase functions deploy`
+4. Set up a database trigger to call the function when a new record is inserted
+
+For more information, see the [Supabase documentation](https://supabase.com/docs). 

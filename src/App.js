@@ -12,6 +12,7 @@ import TermsOfService from "./pages/TermsOfService";
 import ContactUsSection from "./pages/Contact"; // ✅ Import Contact Page
 import Navbar from "./components/Navbar"; // ✅ Import Navbar
 import Callback from "./pages/auth/Callback"; // Import Callback page
+import SupabaseTest from "./supabaseTest"; // Import Supabase test component
 import './responsive.css';
 
 const App = () => {
@@ -39,6 +40,9 @@ const App = () => {
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-of-service" element={<TermsOfService />} />
         <Route path="/contact" element={<ContactUsSection />} /> {/* ✅ Contact Page Added */}
+        
+        {/* Test Route */}
+        <Route path="/supabase-test" element={<SupabaseTest />} />
         
         {/* Auth Routes */}
         <Route path="/auth/callback" element={<Callback />} />

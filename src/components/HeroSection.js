@@ -1,10 +1,81 @@
-import React from "react";
-import { Box, Typography, Button } from "@mui/material";
+import React, { useState } from "react";
+import { Box, Typography, Button, TextField, Snackbar, Alert } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import supabase from "../supabaseClient";
 
 const HeroSection = () => {
-  const navigate = useNavigate(); // Initialize navigation function
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [snackbar, setSnackbar] = useState({
+    open: false,
+    message: "",
+    severity: "success"
+  });
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handleSnackbarClose = () => {
+    setSnackbar({ ...snackbar, open: false });
+  };
+
+  const handleWaitlistSignup = async (e) => {
+    e.preventDefault();
+    
+    if (!email || !/\S+@\S+\.\S+/.test(email)) {
+      setSnackbar({
+        open: true,
+        message: "Please enter a valid email address",
+        severity: "error"
+      });
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      // Insert email into Supabase waitlist table
+      const { data, error } = await supabase
+        .from('waitlist_signups')
+        .insert([{ 
+          email: email,
+          created_at: new Date(),
+          source: 'website_hero'
+        }]);
+
+      if (error) {
+        if (error.code === '23505') {
+          // Unique constraint error - email already exists
+          setSnackbar({
+            open: true,
+            message: "You're already on our waitlist!",
+            severity: "info"
+          });
+        } else {
+          throw error;
+        }
+      } else {
+        setSnackbar({
+          open: true,
+          message: "You've been added to our waitlist!",
+          severity: "success"
+        });
+        setEmail("");
+      }
+    } catch (error) {
+      console.error("Error signing up for waitlist:", error);
+      setSnackbar({
+        open: true,
+        message: "Something went wrong. Please try again later.",
+        severity: "error"
+      });
+    }
+
+    setLoading(false);
+  };
 
   return (
     <Box
@@ -64,6 +135,61 @@ const HeroSection = () => {
           </Typography>
         </motion.div>
         
+        {/* Waitlist Signup Form */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+        >
+          <Box component="form" 
+            onSubmit={handleWaitlistSignup}
+            sx={{ 
+              display: 'flex', 
+              flexDirection: { xs: 'column', sm: 'row' },
+              alignItems: 'center',
+              gap: 2,
+              width: '100%',
+              mt: 3
+            }}
+          >
+            <TextField
+              variant="outlined"
+              placeholder="Enter your email"
+              value={email}
+              onChange={handleEmailChange}
+              sx={{
+                bgcolor: 'rgba(255, 255, 255, 0.9)',
+                borderRadius: '5px',
+                width: { xs: '100%', sm: '70%' },
+                '& .MuiOutlinedInput-root': {
+                  '& fieldset': {
+                    borderColor: 'transparent',
+                  },
+                },
+              }}
+            />
+            <Button 
+              type="submit"
+              variant="contained"
+              disabled={loading}
+              sx={{
+                bgcolor: 'red',
+                color: 'white',
+                padding: { xs: '10px 15px', sm: '12px 24px' },
+                width: { xs: '100%', sm: 'auto' },
+                fontSize: '1rem',
+                borderRadius: '5px',
+                '&:hover': {
+                  bgcolor: 'darkred',
+                },
+                whiteSpace: 'nowrap'
+              }}
+            >
+              {loading ? "Signing up..." : "Join Waitlist"}
+            </Button>
+          </Box>
+        </motion.div>
+        
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -88,6 +214,18 @@ const HeroSection = () => {
           </Button>
         </motion.div>
       </Box>
+
+      {/* Snackbar for notifications */}
+      <Snackbar 
+        open={snackbar.open} 
+        autoHideDuration={6000} 
+        onClose={handleSnackbarClose}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
+      >
+        <Alert onClose={handleSnackbarClose} severity={snackbar.severity} sx={{ width: '100%' }}>
+          {snackbar.message}
+        </Alert>
+      </Snackbar>
     </Box>
   );
 };

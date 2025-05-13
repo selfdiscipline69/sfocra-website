@@ -1,9 +1,0 @@
-# This is a demonstration of how to create a .env file
-
-# Create a file named .env in your project root with the following contents:
-# REACT_APP_SUPABASE_URL=your_actual_supabase_url
-# REACT_APP_SUPABASE_ANON_KEY=your_actual_supabase_anon_key
-
-# For example:
-# REACT_APP_SUPABASE_URL=https://yourproject.supabase.co
-# REACT_APP_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.example_key

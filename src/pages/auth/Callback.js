@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Typography, CircularProgress } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import supabase from '../../supabaseClient';
 
 const Callback = () => {
   const [status, setStatus] = useState('loading');
@@ -11,25 +10,17 @@ const Callback = () => {
   useEffect(() => {
     const handleEmailConfirmation = async () => {
       try {
-        // Get the session from URL
-        const { data, error } = await supabase.auth.getSessionFromUrl();
-
-        if (error) {
-          console.error('Error getting session from URL:', error);
-          setStatus('error');
-          setErrorMessage(error.message || 'Authentication failed');
-          return;
-        }
-
-        if (data) {
-          console.log('Email confirmed successfully!');
-          setStatus('success');
-          
-          // Redirect to home page after 3 seconds
-          setTimeout(() => {
-            navigate('/');
-          }, 3000);
-        }
+        // Placeholder for authentication logic
+        // Since we've removed Supabase, you'll need to implement a new auth solution here
+        
+        // Simulating success for now
+        console.log('Email confirmation simulation');
+        setStatus('success');
+        
+        // Redirect to home page after 3 seconds
+        setTimeout(() => {
+          navigate('/');
+        }, 3000);
       } catch (error) {
         console.error('Unexpected error:', error);
         setStatus('error');

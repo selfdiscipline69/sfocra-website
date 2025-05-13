@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Box, TextField, Typography, Button, Grid, MenuItem } from "@mui/material";
+import { Box, TextField, Typography, Button, Grid, MenuItem, Snackbar, Alert } from "@mui/material";
 import Footer from "../components/Footer"; // ✅ Import Footer
+import supabase from "../supabaseClient"; // Import Supabase client
 
 const ContactUsSection = () => {
   const [formData, setFormData] = useState({
@@ -14,48 +15,99 @@ const ContactUsSection = () => {
 
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [snackbar, setSnackbar] = useState({
+    open: false,
+    message: "",
+    severity: "success"
+  });
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // ✅ Send Contact Form Data to Backend API
+  const handleSnackbarClose = () => {
+    setSnackbar({ ...snackbar, open: false });
+  };
+
+  // Send Contact Form Data to Supabase
   const handleSubmit = async (e) => {
     e.preventDefault();
     
     if (!formData.email) {
-      alert("Please enter your email.");
+      setSnackbar({
+        open: true,
+        message: "Please enter your email.",
+        severity: "error"
+      });
       return;
     }
 
     setLoading(true);
 
     try {
-      const response = await fetch("/api/send-message", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: `${formData.firstName} ${formData.lastName}`.trim() || "Anonymous",
-          email: formData.email,
-          phone: formData.phone || "",
-          inquiryType: formData.inquiryType || "General",
-          message: formData.message || "",
-        }),
-      });
+      // Insert data into Supabase table
+      const { data, error } = await supabase
+        .from('contact_submissions')
+        .insert([
+          { 
+            first_name: formData.firstName || "",
+            last_name: formData.lastName || "",
+            email: formData.email,
+            phone: formData.phone || "",
+            inquiry_type: formData.inquiryType || "General",
+            message: formData.message || "",
+            created_at: new Date(),
+            subscribed_to_newsletter: true // Subscribing by default
+          }
+        ]);
 
-      const data = await response.json();
-      if (response.ok) {
-        setSubmitted(true);
-        alert("✅ Your message has been sent!");
-      } else {
-        alert("❌ Error: " + data.error);
+      if (error) {
+        throw error;
       }
+
+      // Success - show snackbar instead of alert
+      setSnackbar({
+        open: true,
+        message: "Your message has been sent successfully!",
+        severity: "success"
+      });
+      
+      // Set submitted state to show success message
+      setSubmitted(true);
+      
+      // Reset form data
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        inquiryType: "",
+        message: "",
+      });
+      
     } catch (error) {
       console.error("❌ Error:", error);
-      alert("Something went wrong. Please try again later.");
+      setSnackbar({
+        open: true,
+        message: "Something went wrong. Please try again later.",
+        severity: "error"
+      });
     }
 
     setLoading(false);
+  };
+
+  // Handle resetting the form
+  const handleReset = () => {
+    setSubmitted(false);
+    setFormData({
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      inquiryType: "",
+      message: "",
+    });
   };
 
   return (
@@ -75,8 +127,6 @@ const ContactUsSection = () => {
           px: { xs: 2, sm: 3, md: 0 }
         }}
       >
-
-        
         <Box 
           sx={{ 
             maxWidth: { xs: '95%', sm: '80%', md: '600px' }, 
@@ -87,7 +137,8 @@ const ContactUsSection = () => {
             boxShadow: "0 10px 30px rgba(0, 0, 0, 0.5)",
             position: "relative",
             zIndex: 2,
-            backdropFilter: "blur(10px)"
+            backdropFilter: "blur(10px)",
+            minHeight: { xs: '500px', sm: '550px', md: '600px' } // Set consistent minimum height
           }}
         >
           <Typography variant="h4" sx={{ 
@@ -100,16 +151,41 @@ const ContactUsSection = () => {
           </Typography>
 
           {submitted ? (
-            <Typography variant="h6" sx={{ 
-                color: "#4caf50", 
-                textAlign: "center", 
-                mt: 3, 
-                py: { xs: 5, md: 10 },
-                fontWeight: "bold",
-                fontSize: { xs: '1.1rem', sm: '1.2rem', md: '1.25rem' }
-              }}>
-              Thank you! Your message has been sent.
-            </Typography>
+            <Box sx={{ 
+              textAlign: "center", 
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
+              height: { xs: '350px', sm: '400px', md: '450px' } // Match approximate form height
+            }}>
+              <Typography variant="h6" sx={{ 
+                  color: "#4caf50", 
+                  fontWeight: "bold",
+                  fontSize: { xs: '1.1rem', sm: '1.2rem', md: '1.25rem' },
+                  mb: 3
+                }}>
+                Thank you! Your message has been sent.
+              </Typography>
+              
+              <Button
+                variant="contained"
+                sx={{ 
+                  mt: 2, 
+                  py: { xs: 1, sm: 1.2 }, 
+                  fontSize: { xs: '0.9rem', sm: '1rem' },
+                  borderRadius: "10px", 
+                  backgroundColor: "red", 
+                  color: "white",
+                  "&:hover": {
+                    backgroundColor: "darkred"
+                  } 
+                }}
+                onClick={handleReset}
+              >
+                Send Another Message
+              </Button>
+            </Box>
           ) : (
             <form onSubmit={handleSubmit}>
               <Grid container spacing={2}>
@@ -229,6 +305,18 @@ const ContactUsSection = () => {
           )}
         </Box>
       </Box>
+
+      {/* Snackbar for notifications */}
+      <Snackbar 
+        open={snackbar.open} 
+        autoHideDuration={6000} 
+        onClose={handleSnackbarClose}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
+      >
+        <Alert onClose={handleSnackbarClose} severity={snackbar.severity} sx={{ width: '100%' }}>
+          {snackbar.message}
+        </Alert>
+      </Snackbar>
 
       {/* ✅ Footer Added Below */}
       <Footer />
