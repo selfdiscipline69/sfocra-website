@@ -37,8 +37,8 @@ const HeroSection = () => {
     setLoading(true);
 
     try {
-      // Insert email into Supabase waitlist table
-      const { data, error } = await supabase
+      // Step 1: Insert email into Supabase waitlist table
+      const { error: insertError } = await supabase
         .from('waitlist_signups')
         .insert([{ 
           email: email,
@@ -46,8 +46,8 @@ const HeroSection = () => {
           source: 'website_hero'
         }]);
 
-      if (error) {
-        if (error.code === '23505') {
+      if (insertError) {
+        if (insertError.code === '23505') {
           // Unique constraint error - email already exists
           setSnackbar({
             open: true,
@@ -55,12 +55,24 @@ const HeroSection = () => {
             severity: "info"
           });
         } else {
-          throw error;
+          throw insertError;
         }
       } else {
+        // Step 2: Send magic link confirmation email using Supabase Auth
+        const { error: authError } = await supabase.auth.signInWithOtp({
+          email,
+          options: {
+            emailRedirectTo: window.location.origin + "/thankyou"
+          }
+        });
+
+        if (authError) {
+          throw authError;
+        }
+
         setSnackbar({
           open: true,
-          message: "You've been added to our waitlist!",
+          message: "Please check your email for confirmation!",
           severity: "success"
         });
         setEmail("");

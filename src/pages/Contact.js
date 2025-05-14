@@ -52,10 +52,10 @@ const ContactUsSection = () => {
           { 
             first_name: formData.firstName || "",
             last_name: formData.lastName || "",
-            email: formData.email,
-            phone: formData.phone || "",
+          email: formData.email,
+          phone: formData.phone || "",
             inquiry_type: formData.inquiryType || "General",
-            message: formData.message || "",
+          message: formData.message || "",
             created_at: new Date(),
             subscribed_to_newsletter: true // Subscribing by default
           }
@@ -73,7 +73,7 @@ const ContactUsSection = () => {
       });
       
       // Set submitted state to show success message
-      setSubmitted(true);
+        setSubmitted(true);
       
       // Reset form data
       setFormData({
@@ -159,14 +159,14 @@ const ContactUsSection = () => {
               alignItems: 'center',
               height: { xs: '350px', sm: '400px', md: '450px' } // Match approximate form height
             }}>
-              <Typography variant="h6" sx={{ 
-                  color: "#4caf50", 
-                  fontWeight: "bold",
+            <Typography variant="h6" sx={{ 
+                color: "#4caf50", 
+                fontWeight: "bold",
                   fontSize: { xs: '1.1rem', sm: '1.2rem', md: '1.25rem' },
                   mb: 3
-                }}>
-                Thank you! Your message has been sent.
-              </Typography>
+              }}>
+              Thank you! Your message has been sent.
+            </Typography>
               
               <Button
                 variant="contained"

@@ -10,9 +10,9 @@ import Footer from "./components/Footer";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import ContactUsSection from "./pages/Contact"; // ✅ Import Contact Page
+import ThankYouPage from "./pages/ThankYou";
 import Navbar from "./components/Navbar"; // ✅ Import Navbar
 import Callback from "./pages/auth/Callback"; // Import Callback page
-import SupabaseTest from "./supabaseTest"; // Import Supabase test component
 import './responsive.css';
 
 const App = () => {
@@ -40,9 +40,7 @@ const App = () => {
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-of-service" element={<TermsOfService />} />
         <Route path="/contact" element={<ContactUsSection />} /> {/* ✅ Contact Page Added */}
-        
-        {/* Test Route */}
-        <Route path="/supabase-test" element={<SupabaseTest />} />
+        <Route path="/thankyou" element={<ThankYouPage />} />
         
         {/* Auth Routes */}
         <Route path="/auth/callback" element={<Callback />} />
